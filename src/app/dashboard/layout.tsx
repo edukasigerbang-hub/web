@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { dashboardSections } from "@/data/pages";
 import { Button } from "@/components/ui/Button";
+import { DashboardAuthGate } from "@/components/dashboard/DashboardAuthGate";
+import { LogoutButton } from "@/components/dashboard/LogoutButton";
 
 /**
  * Dashboard shell — arsitektur application platform.
@@ -25,15 +27,20 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <div className="hidden border-t border-line-soft p-4 md:block">
+          <div className="border-t border-line-soft p-3 md:p-4">
             <Button href="/" variant="secondary" size="sm" className="w-full">
               Kembali ke Website
             </Button>
+            <div className="mt-2">
+              <LogoutButton />
+            </div>
           </div>
         </aside>
 
         {/* Content */}
-        <div className="min-w-0 flex-1 p-5 md:p-8">{children}</div>
+        <div className="min-w-0 flex-1 p-5 md:p-8">
+          <DashboardAuthGate>{children}</DashboardAuthGate>
+        </div>
       </div>
     </div>
   );

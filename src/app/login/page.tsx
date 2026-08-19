@@ -28,8 +28,8 @@ export default function LoginPage() {
             Coba demo dulu
           </Link>
         </p>
-        <p className="mt-4 text-center text-xs text-muted">
-          Autentikasi masih placeholder — integrasi backend menyusul.
+                        <p className="mt-4 text-center text-xs text-muted">
+          Masuk memakai email &amp; kata sandi — autentikasi via Supabase Auth.
         </p>
       </div>
     </section>

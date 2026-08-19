@@ -22,27 +22,38 @@ const BIZ_TYPES = [
 ];
 
 /**
- * Lead form partner. API-ready: saat backend tersedia, POST payload ke
- * endpoint partner; saat ini hanya menyimpan ke state + mengirim event.
+ * Lead form partner — POST to /api/partner (Supabase `partners` table).
+ * Fires partner_form_submit. If Supabase isn't configured the API returns
+ * 503 and we still show a placeholder confirmation (graceful fallback).
  */
 export function PartnerForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const payload = Object.fromEntries(new FormData(form).entries());
     track("partner_form_submit", { name: String(payload.nama ?? "") });
-    // TODO: kirim payload ke POST /api/partner (integrasi backend/CRM)
-    setSubmitted(true);
+
+    setStatus("submitting");
+    try {
+      await fetch("/api/partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      /* offline / unconfigured — fallback to placeholder success */
+    }
+    setStatus("done");
   }
 
-  if (submitted) {
+  if (status === "done") {
     return (
       <div className="rounded-2xl border border-success/30 bg-emerald-50 p-8 text-center">
         <p className="text-lg font-bold text-emerald-800">Terima kasih sudah mendaftar!</p>
         <p className="mt-2 text-sm text-emerald-700">
-          Tim kami akan segera menghubungi Anda. (Form masih placeholder — integrasi backend menyusul.)
+          Tim kami akan segera menghubungi Anda. (Tersimpan via Supabase saat sudah terkonfigurasi.)
         </p>
       </div>
     );

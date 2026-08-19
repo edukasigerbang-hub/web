@@ -1,12 +1,12 @@
-/**
- * GERBANG EDUKASI — ANALYTICS LAYER (API-READY)
+﻿/**
+ * GERBANG EDUKASI â€” ANALYTICS LAYER (API-READY)
  *
  * Lightweight event tracking used across the site. It is deliberately
  * decoupled so it can be pointed at Google Analytics 4 / a dataLayer /
  * Plausible / Mixpanel later by replacing the `dispatch` implementation,
  * without touching any of the call sites.
  *
- * Documented events (see master doc §25):
+ * Documented events (see master doc Â§25):
  *  page_view, demo_click, video_play, download_android, download_windows,
  *  pricing_view, trial_start, activation_start, activation_success,
  *  partner_form_submit, contact_submit, purchase
@@ -23,6 +23,7 @@ export type TrackEvent =
   | "activation_start"
   | "activation_success"
   | "partner_form_submit"
+  | "dashboard_guard_redirect"
   | "contact_submit"
   | "purchase";
 
@@ -53,3 +54,4 @@ export function track(event: TrackEvent, params: TrackingParams = {}): void {
 export function trackPageView(path: string): void {
   track("page_view", { path });
 }
+

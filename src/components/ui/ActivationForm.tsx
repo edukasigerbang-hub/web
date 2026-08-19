@@ -18,7 +18,7 @@ type Status =
 export function ActivationForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const code = String(form.get("activationCode") ?? "");
@@ -26,19 +26,24 @@ export function ActivationForm() {
     setStatus({ kind: "checking" });
     track("activation_start", { code: code.replace(/-/g, "").slice(0, 4) });
 
-    // Placeholder: simulasi periksa lisensi (backend nanti). Tidak di-hardcode.
-    window.setTimeout(() => {
-      // TODO: GET/POST /api/activation — validasi lisensi & perangkat
-      setStatus(
-        code.trim().length >= 12
-          ? { kind: "success", code }
-          : {
-              kind: "error",
-              message: "Code aktivasi atau Device ID belum valid. Periksa input dan coba ulang.",
-            }
-      );
-      track("activation_success", { deviceId: deviceId ? "registered" : "missing" });
-    }, 900);
+    let ok = false;
+    let message = "";
+    try {
+      const res = await fetch("/api/activation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ activationCode: code, deviceId }),
+      });
+      const data = await res.json();
+      ok = Boolean(data.ok);
+      if (!ok) message = data.error ?? "Validasi belum selesai. Periksa input dan coba ulang.";
+    } catch {
+      ok = false;
+      message = "Server tidak validasi. Coba ulang nanti (berhubung kepada Supabase menyusul).";
+    }
+
+    setStatus(ok ? { kind: "success", code } : { kind: "error", message });
+    track("activation_success", { deviceId: deviceId ? "registered" : "missing" });
   }
 
   return (
@@ -62,7 +67,7 @@ export function ActivationForm() {
       {status.kind === "checking" ? <p className="text-sm text-muted">Periksa lisensi…</p> : null}
       {status.kind === "success" ? (
         <div className="rounded-xl border border-success/30 bg-emerald-50 p-4" role="status">
-          <p className="font-bold text-emerald-800">Aktivasi berhasil (mock)</p>
+          <p className="font-bold text-emerald-800">Aktivasi berhasil</p>
           <p className="text-sm text-emerald-700">
             Lisensi untuk code <code className="font-mono text-xs">{status.code}</code> diaktifkan.
             Validasi resmi menyusul via backend.
