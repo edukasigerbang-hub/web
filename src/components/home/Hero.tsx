@@ -37,7 +37,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+                    <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
             <li className="flex items-center gap-2">
               <Icon name="check" size={16} className="text-success" /> Android &amp; Windows
             </li>
@@ -48,10 +48,29 @@ export function Hero() {
               <Icon name="check" size={16} className="text-success" /> Mudah digunakan guru
             </li>
           </ul>
+
+          {/* Conversion funnel cue: discovery -> demo -> licensing -> activation */}
+          <p className="mt-8 text-sm text-muted">
+            Mulai dari{" "}
+            <a href="/demo" className="font-medium text-primary hover:underline">
+              demo
+            </a>{" "}
+            →{" "}
+            <a href="/harga" className="font-medium text-primary hover:underline">
+              lisensi
+            </a>{" "}
+            →{" "}
+            <a href="/aktivasi" className="font-medium text-accent hover:underline">
+              aktivasi
+            </a>
+            . Satu pengalaman belajar interaktif.
+          </p>
         </div>
 
-        {/* Visual: IFP mockup (CSS) */}
-        <div className="relative">
+                {/* Visual: premium IFP device mockup with gate portal motif */}
+                <div className="relative">
+          {/* restrained geometric "gate" portal motif behind the device */}
+          <div className="portal-rings rounded-2xl" />
           <div className="rounded-2xl border border-line bg-ink p-3 shadow-hero">
             <div className="flex items-center gap-2 rounded-t-lg bg-slate-800 px-4 py-2.5">
               <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
