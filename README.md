@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gerbang Edukasi — Website
 
-## Getting Started
+Website produk **Gerbang Edukasi**: Media Interaktif untuk Interactive Flat Panel (IFP).
+Dibangun sebagai platform **sales, demo, download, lisensi, aktivasi, dan akuisisi pelanggan**
+(bukan company profile).
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **TypeScript**
+- **Tailwind CSS v4** (design tokens via `globals.css`)
+- Prerender statis (SSG) untuk SEO + semua rute marketing
+
+## Menjalankan
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # development (http://localhost:3000)
+npm run build    # production build
+npm run start    # jalankan hasil build
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/                 # Routes (App Router) + metadata, sitemap, robots
+  components/
+    ui/                # Design system: Button, Container, Section, Badge, icons
+    layout/            # Navbar (sticky), Footer
+    home/              # Section homepage
+  data/site.ts          # Konten terpusat (CMS/API-ready)
+  lib/analytics.ts      # Layer analytics (GA4/dataLayer-ready)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Konten & CMS
+Semua copy berada di `src/data/site.ts`, terpisah dari komponen. Saat backend/CMS tersedia,
+array ini cukup diganti dengan respons API tanpa menyentuh UI.
 
-## Learn More
+## Analytics
+Event tracking (lihat `lib/analytics.ts`): `page_view, demo_click, video_play,
+download_android, download_windows, pricing_view, trial_start, activation_start,
+activation_success, partner_form_submit, contact_submit, purchase`.
+Secara default push ke `window.dataLayer` (GA4-ready). Aktifkan/nonaktifkan via `ENABLED`.
 
-To learn more about Next.js, take a look at the following resources:
+## Asset placeholder
+Asset belum tersedia → dipakai placeholder jelas yang mudah diganti:
+- `/public/assets/hero-ifp...` → visual hero
+- `/public/assets/demo-video.mp4`, `demo-poster.png` → demo
+- `/public/assets/content/` → thumbnail konten
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Aturan bisnis
+- **Tidak ada data fiktif**: harga, jumlah pengguna, testimonial, partner, logo disajikan
+  sebagai placeholder ("Coming Soon", "Hubungi Kami") hingga data resmi diberikan.
+- Licensing/aktivasi **tidak di-hardcode di frontend**; arsitektur disiapkan API-ready.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
