@@ -21,13 +21,13 @@ export function PlatformSection() {
               key={platform.id}
               className="group flex flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-card transition-all duration-300 hover:border-primary/30 hover:shadow-card-hover"
             >
-              <div className="flex items-center justify-center border-b border-line bg-gradient-to-br from-primary-soft via-white to-accent-soft px-6 py-8">
-                <span className="flex h-16 w-16 items-center justify-center rounded-xl bg-white shadow-card overflow-hidden">
+              <div className="flex items-center justify-center border-b border-line bg-gradient-to-br from-primary-soft via-white to-accent-soft px-6 py-12">
+                <span className="flex h-28 w-28 items-center justify-center rounded-2xl bg-white shadow-card overflow-hidden">
                   <Image
                     src={platform.img}
                     alt={`Logo ${platform.title}`}
-                    width={64}
-                    height={64}
+                    width={112}
+                    height={112}
                     className="object-contain"
                   />
                 </span>

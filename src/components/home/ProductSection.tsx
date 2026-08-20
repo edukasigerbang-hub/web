@@ -20,7 +20,7 @@ export function ProductSection() {
               key={feature.id}
               className="group flex flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-card-hover"
             >
-              <div className="aspect-[16/10] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src={feature.img}
