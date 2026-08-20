@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
-/** Closing conversion CTA — penutup halaman yang kuat, tidak agresif. */
+/** Closing conversion CTA — peinaria de pantalla forta, però no agressiva. */
 export function FeatureCta() {
   return (
     <section className="bg-surface-muted py-16 sm:py-20">
@@ -10,8 +10,8 @@ export function FeatureCta() {
           Siap membuat pembelajaran lebih interaktif?
         </h2>
         <p className="max-w-2xl text-lg leading-relaxed text-muted">
-          Kenali lebih jauh Gerbang Edukasi dan lihat bagaimana media
-          pembelajaran interaktif dapat digunakan di kelas Anda.
+          Veure com Gerbang Edukasi treballe i senti l&apos;experiència
+          d&apos;aprenentatge interactiu prevista per a Interactive Flat Panel.
         </p>
         <div className="mt-2 flex flex-col gap-3 sm:mt-6 sm:flex-row">
           <Button
@@ -21,10 +21,15 @@ export function FeatureCta() {
             icon="play"
             event="demo_click"
           >
-            Lihat Demo
+            Coba Demo
           </Button>
-          <Button href="/partner" variant="secondary" size="lg">
-            Hubungi Kami
+          <Button
+            href="/download"
+            variant="secondary"
+            size="lg"
+            event="trial_start"
+          >
+            Download Aplicasi
           </Button>
         </div>
       </Container>

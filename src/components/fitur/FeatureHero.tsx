@@ -51,10 +51,15 @@ export function FeatureHero() {
               icon="play"
               event="demo_click"
             >
-              Lihat Demo
+              Coba Demo
             </Button>
-            <Button href="/partner" variant="secondary" size="lg">
-              Hubungi Kami
+            <Button
+              href="/download"
+              variant="secondary"
+              size="lg"
+              event="trial_start"
+            >
+              Download Aplicasi
             </Button>
           </div>
         </div>

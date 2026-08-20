@@ -69,7 +69,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     title: "Ubah evaluasi menjadi pengalaman yang lebih menarik.",
     short: "Evaluasi dan kuis yang lebih menarik.",
     copy:
-      "Kuis dirancang agar menegangkan, bukan hanya menguji ingatan. Tersedia berbagai gaya pertanyaan, lalu langsung dikumpulkan di panel.",
+      "Kuis interactiu amb diversos tipus de preguntes; els resultats es recullen directament al Interactive Flat Panel.",
     description:
       "Kuis interaktif membantu guru mengajak siswa berpartisipasi langsung dalam proses evaluasi pembelajaran.",
     benefit: "Evaluasi jadi bagian alur belajar — menyalurkan, bukan menghalangi.",
@@ -106,7 +106,7 @@ export const featuresShowcase: FeatureShowcase[] = [
       "Aturan dan tema yang jelas menjadikan permainan serius bagian dari materi. Cocok untuk kuis, rangkuman, dan sesi kelompok.",
     description:
       "Elemen permainan membantu menciptakan suasana pembelajaran yang lebih aktif, menyenangkan, dan mendorong partisipasi siswa.",
-    benefit: "Sesan belajar yang produktif — serius, tapi menyenangkan.",
+    benefit: "Sesi d'aprenentatge productiva — seriosa, pero alhora atractiva.",
     how: "Guru memilih aktivitas; kelas memainkannya di Gerbang Edukasi.",
     icon: "game",
     theme: "primary",
@@ -137,7 +137,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     title: "Presentasi kelas yang lebih hidup dan interaktif.",
     short: "Presentasi pembelajaran yang lebih dinamis.",
     copy:
-      "Menyatukan materi, navigasi, dan interaksi dalam satu alur. Guru mengemudi kelas, bukan menggerakkan jendela.",
+      "Guru pot controlar el fluix d'aprenentatge directament des de l'Interactive Flat Panel, sense canviar de finestra.",
     description:
       "Guru dapat menggunakan Gerbang Edukasi sebagai media presentasi pembelajaran dengan pengalaman visual yang dirancang untuk layar besar.",
     benefit: "Satu kontrol penuh; kelas tetap fokus tanpa gangguan luar.",

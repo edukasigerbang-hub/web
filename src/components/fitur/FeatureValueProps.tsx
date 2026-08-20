@@ -13,58 +13,49 @@ interface ValuePropItem {
 const valueItems: ValuePropItem[] = [
   {
     icon: "pointer",
-    title: "Interactive by Design",
-    description:
-      "Materi dirancang agar siswa tidak hanya melihat, tetapi ikut berinteraksi.",
+    title: "Touch First",
+    description: "Interaksi langsung menggunakan layar sentuh.",
   },
   {
     icon: "device",
-    title: "Dibuat untuk IFP",
-    description:
-      "Interface dan pengalaman penggunaan dirancang untuk layar besar dan interaksi sentuh.",
+    title: "Designed for IFP",
+    description: "Pengalaman penggunaan dirancang khusus untuk Interactive Flat Panel.",
   },
   {
-    icon: "media",
-    title: "Multimedia Learning",
-    description:
-      "Gabungkan teks, gambar, audio, video, animasi, dan elemen interaktif dalam satu pengalaman belajar.",
+    icon: "pencil",
+    title: "Interactive Learning",
+    description: "Materi mendorong siswa untuk melihat, mencoba, menjawab, dan berinteraksi.",
   },
   {
-    icon: "thumbsup",
-    title: "Teacher Friendly",
-    description:
-      "Navigasi sederhana sehingga guru dapat menggunakan media pembelajaran tanpa proses yang rumit.",
+    icon: "android",
+    title: "Android & Windows",
+    description: "Dapat digunakan pada perangkat IFP berbasis Android maupun Windows.",
   },
 ];
 
 /**
- * Value Proposition — "Mengapa Gerbang Edukasi?" 4 poin singkat setelah hero.
+ * Value Proposition — "Why Gerbang Edukasi?" 4 motivacio.
+ * Layout lleuger (icon + titol + desc) per priortizar l'espai; no pesat,
+ * com una declaracio de valor, no pas una llista de funcions.
  */
 export function FeatureValueProps() {
   return (
-    <Section id="mengapa" tone="white">
+    <Section id="why" tone="white">
       <Container>
         <SectionHeading
-          eyebrow="Mengapa Gerbang Edukasi?"
-          title="Media pembelajaran interaktif yang dibuat untuk kelas modern"
-          description="Empat alasan mengapa Gerbang Edukasi berbeda dari media pembelajaran biasa."
+          eyebrow="Why Gerbang Edukasi?"
+          title="Mengapa Gerbang Edukasi?"
+          description="Dirancang bukan sekadar menampilkan materi, tetapi membuat interaksi belajar terjadi di dalam kelas."
         />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {valueItems.map((item) => (
-            <article
-              key={item.title}
-              className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-6 shadow-card transition-shadow hover:shadow-card-hover"
-            >
+            <div key={item.title} className="flex flex-col gap-3">
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
                 <Icon name={item.icon} size={24} />
               </span>
-              <h3 className="text-lg font-bold leading-snug text-ink">
-                {item.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted">
-                {item.description}
-              </p>
-            </article>
+              <p className="text-base font-bold leading-tight text-ink">{item.title}</p>
+              <p className="text-sm leading-relaxed text-muted">{item.description}</p>
+            </div>
           ))}
         </div>
       </Container>
