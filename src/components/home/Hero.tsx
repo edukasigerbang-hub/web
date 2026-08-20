@@ -2,6 +2,7 @@ import { hero } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/icons";
+import Image from "next/image";
 
 /**
  * Hero — hentikan perhatian, jawab "apa/manfaat/coba" dalam hitungan detik.
@@ -67,49 +68,19 @@ export function Hero() {
           </p>
         </div>
 
-                {/* Visual: premium IFP app mockup with restrained digital-gate accent */}
+                {/* Visual: screenshot/mockup IFP nyata dari /assets/hero-ifp.png */}
         <div className="relative">
-          {/* subtle geometric "gate" portal behind the device */}
-          <div className="portal-rings rounded-2xl" />
+          {/* subtle geometric "gate" portal behind the image */}
+          <div className="portal-rings rounded-2xl" aria-hidden="true" />
 
-          <div className="rounded-2xl border border-line bg-white p-3 shadow-hero">
-            {/* device top bar */}
-            <div className="mb-2 flex items-center gap-2 rounded-full bg-ink px-4 py-2">
-              <span className="flex h-5 w-5 items-center justify-center rounded-md bg-primary text-white">
-                <Icon name="logo" size={16} />
-              </span>
-              <span className="text-xs font-semibold tracking-wide text-white">Gerbang Edukasi</span>
-              <span className="mx-auto" />
-              <span className="text-[10px] tracking-wide text-white/70">Interactive Flat Panel</span>
-            </div>
-
-            {/* App screen — struktur tetap, ganti isi dengan screenshot nyata */}
-            <div className="overflow-hidden rounded-xl border border-line bg-white p-5">
-              <div className="grid grid-cols-3 gap-2.5">
-                <span className="flex h-14 items-center justify-center rounded-lg bg-primary-soft text-primary/70">
-                  <Icon name="pencil" size={20} />
-                </span>
-                <span className="flex h-14 items-center justify-center rounded-lg bg-accent-soft text-accent/70">
-                  <Icon name="quiz" size={20} />
-                </span>
-                <span className="flex h-14 items-center justify-center rounded-lg bg-success/15 text-success/70">
-                  <Icon name="game" size={20} />
-                </span>
-              </div>
-              <div className="mt-4 flex items-center gap-3 rounded-lg border border-line bg-white px-3 py-3 shadow-card">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white">
-                  <Icon name="logo" size={18} />
-                </span>
-                <div className="min-w-0 flex-1 truncate">
-                  <p className="truncate text-xs font-bold text-ink">Media Pembelajaran Interaktif</p>
-                  <p className="truncate text-[11px] text-muted">Sentuh para beraksi · touch to interact</p>
-                </div>
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-success text-white">
-                  <Icon name="check" size={14} />
-                </span>
-              </div>
-            </div>
-          </div>
+          <Image
+            src={hero.visual.src}
+            alt={hero.visual.alt}
+            width={1535}
+            height={1024}
+            priority
+            className="relative h-auto w-full rounded-2xl border border-line object-contain shadow-hero"
+          />
         </div>
       </Container>
     </section>
