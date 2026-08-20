@@ -17,7 +17,6 @@ export function DemoSsection() {
         />
         <div className="mx-auto max-w-4xl">
           <DemoPlayer />
-          <p className="mt-3 text-center text-xs text-muted">{demoSx.note}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={demoSx.primaryCta.href} variant="primary" size="lg" icon="play" event={demoSx.primaryCta.event}>
               {demoSx.primaryCta.label}

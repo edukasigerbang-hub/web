@@ -1,36 +1,38 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&display=swap");
 
 /* ============================================================
    GERBANG EDUKASI — DESIGN SYSTEM TOKENS
    Premium · Technology · Clean · Education
-   Identity: blue-cyan "gate" + teal "digital identity" on deep-navy
+   Identity: Deep Navy + Blue + Digital Cyan + Growth Green
+   Signature accent: Blue → Cyan → Green (used sparingly)
    ============================================================ */
 
 :root {
-  /* Brand identity — "Gate" blue-cyan (restrained) */
-  --color-primary: #0369a1; /* sky-700 — gate / primary actions */
-  --color-primary-dark: #075985; /* sky-800 — hover/active */
-  --color-primary-deep: #0284c7; /* sky-600 — focus ring */
-  --color-primary-soft: #e0f2fe; /* sky-100 — tint bg */
-  --color-primary-ring: #93c5fd; /* sky-300 — focus ring */
+  /* Brand — "Gate" blue (primary actions) */
+  --color-primary: #1463e8; /* Blue — gate / primary */
+  --color-primary-dark: #0e4fce; /* deeper blue — hover/active */
+  --color-primary-deep: #071b3a; /* Deep Navy — foundation / dark sections */
+  --color-primary-soft: #e8f0ff; /* pale blue tint bg */
+  --color-primary-ring: #8fb0f8; /* light blue — focus ring */
 
-  /* Accent — digital identity teal-green (restrained) */
-  --color-accent: #0d9488; /* teal-600 — accents / links */
-  --color-accent-dark: #0a8572; /* teal-700 — hover */
-  --color-accent-soft: #ccfbf1; /* teal-100 — tint bg */
+  /* Accent — Digital Cyan (links / interludes) */
+  --color-accent: #08b9e8; /* Digital Cyan */
+  --color-accent-dark: #0799cf; /* deeper cyan — hover */
+  --color-accent-soft: #e0f6fd; /* pale cyan tint */
 
-  /* Neutrals — deep-navy typography on light, airy surfaces */
-  --color-ink: #0f172a; /* navy-900 — headings (deep) */
-  --color-ink-soft: #334155; /* slate-700 — strong body */
-  --color-muted: #64748b; /* slate-500 — secondary text */
+  /* Neutrals — clean light surfaces with deep-navy typography */
+  --color-ink: #071b3a; /* Deep Navy — headings */
+  --color-ink-soft: #243a5e;
+  --color-muted: #5d6c85;
   --color-surface: #ffffff;
-  --color-surface-muted: #f8fafc; /* slate-50 — alternate bg */
-  --color-line: #e2e8f0; /* slate-200 — borders */
-  --color-line-soft: #f1f5f9; /* slate-100 */
+  --color-surface-muted: #f7f9fc;
+  --color-line: #e5eaf1;
+  --color-line-soft: #eef2f7;
 
-  /* Semantic (green keeps its positive meaning) */
-  --color-success: #16a34a;
-  --color-warning: #d97706;
+  /* Semantic (Green keeps its positive meaning) */
+  --color-success: #25c96f; /* Growth Green */
+  --color-warning: #d98000;
   --color-error: #dc2626;
 }
 
@@ -58,13 +60,13 @@
   --color-warning: var(--color-warning);
   --color-error: var(--color-error);
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   /* Elevation */
   --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 12px rgb(15 23 42 / 0.05);
   --shadow-card-hover: 0 6px 20px rgb(15 23 42 / 0.10);
-  --shadow-hero: 0 20px 60px -20px rgb(8 145 178 / 0.28); /* teal gate glow */
+  --shadow-hero: 0 24px 70px -24px rgb(20 99 232 / 0.30); /* blue gate glow */
 }
 
 /* Subtle geometric portal motif — restrained "digital gate" signature */
