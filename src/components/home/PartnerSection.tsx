@@ -18,18 +18,18 @@ export function PartnerSection() {
         />
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Partner value */}
-          <ul className="space-y-3">
+          <ul className="space-y-4">
             {partner.perks.map((perk) => (
               <li
                 key={perk.title}
-                className="flex items-start gap-3 rounded-2xl border border-line bg-surface p-4 shadow-card"
+                className="flex items-start gap-4 rounded-xl border border-line bg-surface p-4"
               >
-                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <Icon name={perk.icon as IconName} size={20} />
+                <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
+                  <Icon name={perk.icon as IconName} size={22} />
                 </span>
                 <div>
                   <p className="font-bold text-ink">{perk.title}</p>
-                  <p className="text-sm text-muted">{perk.description}</p>
+                  <p className="mt-1 text-sm text-muted">{perk.description}</p>
                 </div>
               </li>
             ))}

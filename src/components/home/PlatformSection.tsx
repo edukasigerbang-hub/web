@@ -16,18 +16,22 @@ export function PlatformSection() {
           title={platforms.title}
           description={platforms.description}
         />
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {platforms.items.map((platform) => (
-            <div
+            <article
               key={platform.id}
-              className="rounded-2xl border border-line bg-surface p-8 shadow-card"
+              className="group flex flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-card transition-all duration-300 hover:border-primary/30 hover:shadow-card-hover"
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-muted text-ink">
-                <Icon name={platform.icon as IconName} size={28} />
-              </span>
-              <h3 className="mt-5 text-xl font-bold text-ink">{platform.title}</h3>
-              <p className="mt-2 text-base leading-relaxed text-muted">{platform.description}</p>
-            </div>
+              <div className="flex items-center justify-center border-b border-line bg-gradient-to-br from-primary-soft via-white to-accent-soft px-6 py-8">
+                <span className="flex h-16 w-16 items-center justify-center rounded-xl bg-surface shadow-card">
+                  <Icon name={platform.icon as IconName} size={32} className="text-primary" />
+                </span>
+              </div>
+              <div className="flex flex-col gap-3 p-6">
+                <h3 className="text-xl font-bold text-ink">{platform.title}</h3>
+                <p className="text-sm leading-relaxed text-muted">{platform.description}</p>
+              </div>
+            </article>
           ))}
         </div>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

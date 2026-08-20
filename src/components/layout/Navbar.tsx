@@ -20,7 +20,7 @@ export function Navbar() {
             <Icon name="logo" size={22} />
           </span>
           <span className="text-lg font-bold tracking-tight text-ink">
-            Gerbang<span className="text-primary">Edukasi</span>
+            Gerbang <span className="text-primary">Edukasi</span>
           </span>
         </Link>
 

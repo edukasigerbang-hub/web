@@ -16,7 +16,7 @@ export function Footer() {
                 <Icon name="logo" size={22} />
               </span>
               <span className="text-lg font-bold tracking-tight text-white">
-                Gerbang<span className="text-indigo-400">Edukasi</span>
+                Gerbang <span className="text-accent">Edukasi</span>
               </span>
             </Link>
             <p className="mt-3 text-sm text-slate-400">{site.tagline}</p>
