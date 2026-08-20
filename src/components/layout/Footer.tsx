@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { footerLinks, site } from "@/data/site";
-import { Icon } from "@/components/ui/icons";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,12 +11,9 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — beranda`}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white">
-                <Icon name="logo" size={22} />
-              </span>
-              <span className="text-lg font-bold tracking-tight text-white">
-                Gerbang <span className="text-accent">Edukasi</span>
+            <Link href="/" className="inline-flex" aria-label={`${site.name} — beranda`}>
+              <span className="flex items-center justify-center rounded-xl bg-white px-3 py-2">
+                <Logo height={28} />
               </span>
             </Link>
             <p className="mt-3 text-sm text-slate-400">{site.tagline}</p>

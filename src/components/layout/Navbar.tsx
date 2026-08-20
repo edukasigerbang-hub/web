@@ -5,6 +5,7 @@ import { useState } from "react";
 import { navLinks, site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/icons";
+import { Logo } from "@/components/ui/Logo";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,12 +17,7 @@ export function Navbar() {
         className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8"
       >
         <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} — beranda`}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white">
-            <Icon name="logo" size={22} />
-          </span>
-          <span className="text-lg font-bold tracking-tight text-ink">
-            Gerbang <span className="text-primary">Edukasi</span>
-          </span>
+          <Logo height={34} eager className="shrink-0" />
         </Link>
 
         {/* Desktop nav */}
