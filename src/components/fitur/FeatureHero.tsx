@@ -53,12 +53,14 @@ export function FeatureHero() {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-0">
+                        <div className="mt-10 md:mt-0">
           <ScreenPlaceholder
             icon="logo"
             title={site.name}
             theme="primary"
             wide
+            img="/assets/hero-ifp.png"
+            priority
           />
         </div>
       </Container>

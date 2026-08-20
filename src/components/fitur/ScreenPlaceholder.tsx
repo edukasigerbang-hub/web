@@ -20,12 +20,14 @@ export function ScreenPlaceholder({
   theme = "primary",
   wide = false,
   img,
+  priority = false,
 }: {
   icon: IconName;
   title: string;
   theme?: FeatureTheme;
   wide?: boolean;
   img?: string;
+  priority?: boolean;
 }) {
   return (
     <div
@@ -51,12 +53,13 @@ export function ScreenPlaceholder({
       {img ? (
         <div className="relative aspect-[16/10] w-full md:aspect-[16/9]">
           <Image
-            src={img}
-            alt={title}
-            fill
-            sizes="(min-width: 768px) 640px, 420px"
-            className="object-cover"
-          />
+              src={img}
+              alt={title}
+              fill
+              sizes="(min-width: 768px) 640px, 420px"
+              className="object-cover"
+              priority={priority}
+            />
         </div>
       ) : (
         <div
@@ -75,7 +78,8 @@ export function ScreenPlaceholder({
           </div>
         </div>
       )}
-    </div>
+        </div>
   );
 }
+
       

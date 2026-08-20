@@ -107,10 +107,11 @@ export function FeatureSections() {
                 /* 01,02,04,05: dua kolom, visual kiri/kanan bergantian */
                 <div className="grid gap-10 items-center md:grid-cols-2 md:gap-16">
                   <div className={isTextLeft ? "md:col-start-2" : ""}>
-                    <ScreenPlaceholder
+                                        <ScreenPlaceholder
                       icon={feature.icon as IconName}
                       title={feature.title}
                       theme={theme}
+                      img={feature.img}
                     />
                   </div>
                   <FeatureText feature={feature} />
