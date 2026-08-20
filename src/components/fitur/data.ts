@@ -24,6 +24,7 @@ export interface FeatureShowcase {
   how: string;
   icon: IconName;
   theme: "primary" | "accent" | "success";
+  img?: string; // screenshot asli (/assets/content/) — pakai ini bila ada, else mock
   layout: FeatureLayout;
 }
 
@@ -53,6 +54,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     how: "Guru menyajikan materi, lalu kelas bereksperimen langsung di satu layar.",
     icon: "pencil",
     theme: "primary",
+    img: "/assets/content/interactive.png",
     layout: "visual-left",
   },
   {
@@ -66,6 +68,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     how: "Guru menyiapkan kuis; tiap siswa menjawab langsung di Gerbang Edukasi.",
     icon: "quiz",
     theme: "accent",
+    img: "/assets/content/quizz.png",
     layout: "text-left",
   },
   {
@@ -79,6 +82,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     how: "Seret elemen ke dalam presentasi — siswa melihat hasilnya langsung.",
     icon: "media",
     theme: "success",
+    img: "/assets/content/multimedia.png",
     layout: "visual-large",
   },
   {
@@ -92,6 +96,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     how: "Guru memilih aktivitas; kelas memainkannya di Gerbang Edukasi.",
     icon: "game",
     theme: "primary",
+    img: "/assets/content/edukasigame.png",
     layout: "visual-left",
   },
   {
@@ -105,6 +110,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     how: "Masukkan latihan; siswa mengerjakan langsung di IFP.",
     icon: "exercise",
     theme: "accent",
+    img: "/assets/content/exercise.png",
     layout: "text-left",
   },
   {
@@ -118,6 +124,7 @@ export const featuresShowcase: FeatureShowcase[] = [
     how: "Presentasi dikemudikan langsung dari Interactive Flat Panel.",
     icon: "presentation",
     theme: "success",
+    img: "/assets/content/classroom.png",
     layout: "visual-large-cta",
   },
 ];

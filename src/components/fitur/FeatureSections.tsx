@@ -77,6 +77,7 @@ export function FeatureSections() {
                     icon={feature.icon as IconName}
                     title={feature.title}
                     theme={theme}
+                    img={feature.img}
                     wide
                   />
                   <FeatureText feature={feature} center />
