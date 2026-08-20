@@ -1,54 +1,23 @@
 import type { Metadata } from "next";
-import { demoPage } from "@/data/pages";
-import { PageHeader } from "@/components/ui/PageHeader";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { DemoPlayer } from "@/components/home/DemoPlayer";
+import { DemoHero } from "@/components/demo/DemoHero";
+import { VideoDemo } from "@/components/demo/VideoDemo";
+import { InteractivePreview } from "@/components/demo/InteractivePreview";
+import { WhatYouCanSee } from "@/components/demo/WhatYouCanSee";
+import { DemoCta } from "@/components/demo/DemoCta";
 
 export const metadata: Metadata = {
-  title: "Demo",
-  description: "Lihat Gerbang Edukasi beraksi — demo & pratinjau interaktif aplikasi media pembelajaran.",
+  title: "Demo Gerbang Edukasi - Lihat Aplikasi Beraksi",
+  description: "Tonton video demo atau jelajahi pratinjau interaktif Gerbang Edukasi, aplikasi media pembelajaran interaktif untuk Interactive Flat Panel.",
 };
 
 export default function DemoPage() {
   return (
     <>
-      <PageHeader
-        eyebrow={demoPage.eyebrow}
-        title={demoPage.title}
-        description={demoPage.description}
-      />
-      <Container className="py-14 md:py-20">
-        <div className="mx-auto max-w-4xl">
-          <DemoPlayer />
-          <p className="mt-3 text-center text-xs text-muted">{demoPage.interactiveNote}</p>
-
-          {/* Interactive preview placeholder */}
-          <div className="mt-10 rounded-2xl border border-dashed border-line bg-surface-muted p-10 text-center">
-            <p className="text-sm font-medium text-ink-soft">
-              Pratinjau interaktif aplikasi (placeholder)
-            </p>
-            <p className="mx-auto mt-2 max-w-md text-sm text-muted">
-              Di sini nantinya akan tampil demo aplikasi yang bisa dicoba langsung di browser.
-            </p>
-          </div>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href={demoPage.primaryCta.href} variant="primary" size="lg" icon="play" event={demoPage.primaryCta.event}>
-              {demoPage.primaryCta.label}
-            </Button>
-            <Button
-              href={demoPage.secondaryCta.href}
-              variant="secondary"
-              size="lg"
-              icon="download"
-              event={demoPage.secondaryCta.event}
-            >
-              {demoPage.secondaryCta.label}
-            </Button>
-          </div>
-        </div>
-      </Container>
+      <DemoHero />
+      <VideoDemo />
+      <InteractivePreview />
+      <WhatYouCanSee />
+      <DemoCta />
     </>
   );
 }
