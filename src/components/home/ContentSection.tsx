@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/icons";
+import Image from "next/image";
 
 const platformLabels: Record<string, string> = {
   android: "Android",
@@ -39,8 +39,14 @@ export function ContentSection() {
               key={card.id}
               className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-card transition-shadow hover:shadow-card-hover"
             >
-              <div className="grid aspect-[16/9] place-items-center bg-gradient-to-br from-surface-muted to-primary-soft">
-                <Icon name="media" size={40} className="text-primary/60" />
+              <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-surface-muted to-primary-soft">
+                <Image
+                  src={card.thumb}
+                  alt={card.title}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <span className="text-xs font-semibold text-primary">{card.category}</span>
