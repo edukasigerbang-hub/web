@@ -14,6 +14,7 @@ export interface FeatureItem {
   title: string;
   description: string;
   icon: string; // key of IconSet (see components/ui/icons.tsx)
+  img: string; // screenshot /assets/content/*.png
 }
 
 export interface NavLink {
@@ -114,36 +115,42 @@ export const features: FeatureItem[] = [
     title: "Interactive Learning",
     description: "Pembelajaran dengan elemen interaktif.",
     icon: "pencil",
+    img: "/assets/content/interactive.png",
   },
   {
     id: "interactive-quiz",
     title: "Interactive Quiz",
     description: "Evaluasi dan kuis yang lebih menarik.",
     icon: "quiz",
+    img: "/assets/content/quizz.png",
   },
   {
     id: "multimedia",
     title: "Multimedia",
     description: "Gunakan gambar, audio, video, animasi, dan elemen interaktif.",
     icon: "media",
+    img: "/assets/content/multimedia.png",
   },
   {
     id: "educational-games",
     title: "Educational Games",
     description: "Aktivitas belajar berbasis permainan.",
     icon: "game",
+    img: "/assets/content/edukasigame.png",
   },
   {
     id: "interactive-exercises",
     title: "Interactive Exercises",
     description: "Latihan yang dapat melibatkan siswa secara langsung.",
     icon: "exercise",
+    img: "/assets/content/exercise.png",
   },
   {
     id: "classroom-presentation",
     title: "Classroom Presentation",
     description: "Presentasi pembelajaran yang lebih dinamis.",
     icon: "presentation",
+    img: "/assets/content/classroom.png",
   },
 ];
 

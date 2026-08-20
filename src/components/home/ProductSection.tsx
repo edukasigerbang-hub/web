@@ -2,16 +2,9 @@ import { features, productHeading } from "@/data/site";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Icon } from "@/components/ui/icons";
-import type { IconName } from "@/components/ui/icons";
+import Image from "next/image";
 
 /** Product — kartu fitur visual, tidak penuh teks. */
-const gradientPairs = [
-  "from-primary-soft to-accent-soft",
-  "from-accent-soft to-success/15",
-  "from-primary-soft to-success/15",
-];
-
 export function ProductSection() {
   return (
     <Section id="produk" tone="white">
@@ -22,20 +15,20 @@ export function ProductSection() {
           description={productHeading.description}
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <article
               key={feature.id}
               className="group flex flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-card-hover"
             >
               <div className="aspect-[16/10] overflow-hidden">
-                <div
-                  className={`grid h-full w-full place-items-center bg-gradient-to-br transition-transform duration-500 group-hover:scale-105 ${
-                    gradientPairs[index % gradientPairs.length]
-                  }`}
-                >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/85 text-primary shadow-card">
-                    <Icon name={feature.icon as IconName} size={26} />
-                  </span>
+                <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-105">
+                  <Image
+                    src={feature.img}
+                    alt={feature.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
               <div className="flex flex-col p-5">
