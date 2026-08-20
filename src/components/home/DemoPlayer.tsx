@@ -2,8 +2,9 @@
 
 import { track } from "@/lib/analytics";
 import { Icon } from "@/components/ui/icons";
+import Image from "next/image";
 
-/** Demo video frame — 16:9 premium placeholder, siap diganti dengan video nyata. */
+/** Demo video frame — 16:9 poster with play overlay; swap with real video when ready. */
 export function DemoPlayer() {
   return (
     <a
@@ -12,6 +13,14 @@ export function DemoPlayer() {
       onClick={() => track("video_play", { source: "homepage-demo" })}
       className="group relative block aspect-video w-full overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-primary-soft via-white to-accent-soft shadow-card"
     >
+      {/* poster — real demo screenshot when provided, gradient fallback otherwise */}
+      <Image
+        src="/assets/demo-poster.png"
+        alt="Pratinjau demo Gerbang Edukasi"
+        fill
+        sizes="(min-width: 1024px) 1024px, (min-width: 640px) 100vw, 100vw"
+        className="object-cover"
+      />
       {/* subtle brand wash */}
       <span aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_50%_60%,var(--color-primary-soft),transparent_75%)]" />
       {/* play button */}
