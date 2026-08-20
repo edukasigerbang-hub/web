@@ -172,14 +172,16 @@ export const platforms = {
       title: "Android",
       description: "Optimized untuk Interactive Flat Panel berbasis Android.",
       icon: "android",
+      img: "/assets/content/icon_android.png",
     },
     {
       id: "windows",
       title: "Windows",
       description: "Dapat digunakan pada IFP atau perangkat Windows yang kompatibel.",
       icon: "window",
+      img: "/assets/content/icon_windows.png",
     },
-  ] as { id: string; title: string; description: string; icon: string }[],
+  ] as { id: string; title: string; description: string; icon: string; img: string }[],
   cta: [
     { label: "Download untuk Android", href: "/download", icon: "download", event: "download_android" },
     { label: "Download untuk Windows", href: "/download", icon: "download", event: "download_windows" },

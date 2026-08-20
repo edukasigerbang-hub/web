@@ -3,8 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/icons";
-import type { IconName } from "@/components/ui/icons";
+import Image from "next/image";
 
 /** Platform — satu produk, dua platform (Android + Windows). */
 export function PlatformSection() {
@@ -23,8 +22,14 @@ export function PlatformSection() {
               className="group flex flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-card transition-all duration-300 hover:border-primary/30 hover:shadow-card-hover"
             >
               <div className="flex items-center justify-center border-b border-line bg-gradient-to-br from-primary-soft via-white to-accent-soft px-6 py-8">
-                <span className="flex h-16 w-16 items-center justify-center rounded-xl bg-surface shadow-card">
-                  <Icon name={platform.icon as IconName} size={32} className="text-primary" />
+                <span className="flex h-16 w-16 items-center justify-center rounded-xl bg-white shadow-card overflow-hidden">
+                  <Image
+                    src={platform.img}
+                    alt={`Logo ${platform.title}`}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </span>
               </div>
               <div className="flex flex-col gap-3 p-6">
