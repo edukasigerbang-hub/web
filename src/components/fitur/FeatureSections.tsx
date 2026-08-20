@@ -1,5 +1,6 @@
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/icons";
 import type { IconName } from "@/components/ui/icons";
@@ -18,23 +19,21 @@ function FeatureText({
     <div
       className={`max-w-prose ${center ? "mx-auto text-center" : "text-left"}`}
     >
-      <div className="flex items-center gap-4">
-        <span className="text-3xl font-extrabold leading-none tracking-tighter text-primary/10">
-          {feature.number}
+      <div className={`flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+        <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+          {feature.label}
         </span>
-        <h2 className="text-2xl font-bold text-ink sm:text-3xl">
-          {feature.title}
-        </h2>
       </div>
 
+      <h3 className="mt-3 text-2xl font-bold leading-tight tracking-tight text-ink sm:text-3xl">
+        {feature.title}
+      </h3>
+
       <p className="mt-4 text-base leading-relaxed text-muted">
-        {feature.short}
-      </p>
-      <p className="mt-3 text-sm leading-relaxed text-ink/70">
-        {feature.copy}
+        {feature.description}
       </p>
 
-      <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+      <ul className="mt-6 grid gap-3 sm:grid-cols-2">
         <li className="flex items-start gap-2.5">
           <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success/15 text-success">
             <Icon name="check" size={12} />
@@ -53,26 +52,31 @@ function FeatureText({
 }
 
 /**
- * Enam showcase section dengan alternation layout:
- * 01 visual-left | 02 text-left | 03 visual-large | 04 visual-left
- * 05 text-left | 06 visual-large + CTA
+ * Enam showcase feature — pola alternating (visual ↔ text) yang dinamis saat
+ * scrolling. Setiap baris dua kolom; posisi bergantian tiap feature.
  */
 export function FeatureSections() {
   return (
-    <>
-      {featuresShowcase.map((feature, i) => {
-        const tone = i % 2 === 0 ? "white" : "muted";
-                const theme = feature.theme as FeatureTheme;
-        const isTextLeft = feature.layout === "text-left";
-        const isLarge = feature.layout === "visual-large";
-        const isLargeCta = feature.layout === "visual-large-cta";
+    <Section id="fitur" tone="muted">
+      <Container>
+        <SectionHeading
+          eyebrow="Fitur Utama"
+          title="Kemampuan inti yang siap dipakai di kelas"
+          description="Dari menjelaskan materi hingga mengajak siswa berpartisipasi — semua berjalan langsung di Interactive Flat Panel."
+        />
 
-        return (
-          <Section key={feature.id} id={feature.id} tone={tone}>
-            <Container className="py-0">
-              {isLarge || isLargeCta ? (
-                /* 03 & 06: visual besar, text di bawah */
-                <div className="flex flex-col items-center gap-10">
+        <div className="flex flex-col gap-20 md:gap-28">
+          {featuresShowcase.map((feature, i) => {
+            const theme = feature.theme as FeatureTheme;
+            const isTextFirst = i % 2 === 1;
+
+            return (
+              <div
+                key={feature.id}
+                id={feature.id}
+                className="grid scroll-mt-24 items-center gap-8 md:grid-cols-2 md:gap-16"
+              >
+                <div className={isTextFirst ? "md:order-2" : ""}>
                   <ScreenPlaceholder
                     icon={feature.icon as IconName}
                     title={feature.title}
@@ -80,47 +84,36 @@ export function FeatureSections() {
                     img={feature.img}
                     wide
                   />
-                  <FeatureText feature={feature} center />
-                  {isLargeCta ? (
-                    <div className="flex flex-col gap-3 sm:flex-row">
+                </div>
+
+                <div className={isTextFirst ? "md:order-1" : ""}>
+                  <FeatureText feature={feature} />
+                  {feature.layout === "visual-large-cta" ? (
+                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                       <Button
                         href="/demo"
                         variant="primary"
                         size="lg"
-                        icon="arrow"
+                        icon="play"
                         event="demo_click"
                       >
-                        Coba Demo
+                        Lihat Demo
                       </Button>
                       <Button
-                        href="/download"
+                        href="/partner"
                         variant="secondary"
                         size="lg"
-                        event="trial_start"
                       >
-                        Download Aplikasi
+                        Hubungi Kami
                       </Button>
                     </div>
                   ) : null}
                 </div>
-              ) : (
-                /* 01,02,04,05: dua kolom, visual kiri/kanan bergantian */
-                <div className="grid gap-10 items-center md:grid-cols-2 md:gap-16">
-                  <div className={isTextLeft ? "md:col-start-2" : ""}>
-                                        <ScreenPlaceholder
-                      icon={feature.icon as IconName}
-                      title={feature.title}
-                      theme={theme}
-                      img={feature.img}
-                    />
-                  </div>
-                  <FeatureText feature={feature} />
-                </div>
-              )}
-            </Container>
-          </Section>
-        );
-      })}
-    </>
+              </div>
+            );
+          })}
+        </div>
+      </Container>
+    </Section>
   );
 }

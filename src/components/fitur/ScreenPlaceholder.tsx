@@ -53,13 +53,13 @@ export function ScreenPlaceholder({
       {img ? (
         <div className="relative aspect-[16/10] w-full md:aspect-[16/9]">
           <Image
-              src={img}
-              alt={title}
-              fill
-              sizes="(min-width: 768px) 640px, 420px"
-              className="object-cover"
-              priority={priority}
-            />
+            src={img}
+            alt={title}
+            fill
+            sizes="(min-width: 768px) 640px, 420px"
+            className="object-cover"
+            priority={priority}
+          />
         </div>
       ) : (
         <div
@@ -78,7 +78,7 @@ export function ScreenPlaceholder({
           </div>
         </div>
       )}
-        </div>
+    </div>
   );
 }
 

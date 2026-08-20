@@ -19,16 +19,22 @@ function PlatformPill({ icon, label }: PlatformPillProps) {
 /** Hero /fitur — headline + supporting + platform indicators + visual. */
 export function FeatureHero() {
   return (
-    <section className="bg-surface py-16 sm:py-20 md:py-24">
-      <Container className="items-center gap-12 md:grid-cols-2 md:gap-16">
+    <section className="relative overflow-hidden bg-surface">
+      {/* subtle brand wash + portal motif */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px] bg-[radial-gradient(60%_80%_at_70%_0%,var(--color-primary-soft),transparent_70%)]"
+      />
+      <Container className="grid items-center gap-12 py-16 sm:py-20 md:grid-cols-2 md:py-24 md:gap-16">
         <div className="max-w-xl">
           <Badge tone="brand">Fitur</Badge>
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl">
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
             Fitur yang Membuat Belajar Lebih Interaktif
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted">
-            Semua fitur inti {site.name} dalam satu platform — untuk
-            pembelajaran yang lebih aktif di kelas.
+            {site.name} menghadirkan pengalaman belajar interaktif yang
+            dirancang untuk Interactive Flat Panel, sehingga guru dan siswa
+            dapat berinteraksi langsung dengan materi pembelajaran.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2.5">
@@ -42,18 +48,18 @@ export function FeatureHero() {
               href="/demo"
               variant="primary"
               size="lg"
-              icon="arrow"
+              icon="play"
               event="demo_click"
             >
-              Coba Demo
+              Lihat Demo
             </Button>
-            <Button href="/download" variant="secondary" size="lg" event="trial_start">
-              Download Aplikasi
+            <Button href="/partner" variant="secondary" size="lg">
+              Hubungi Kami
             </Button>
           </div>
         </div>
 
-                        <div className="mt-10 md:mt-0">
+        <div className="mt-10 md:mt-0">
           <ScreenPlaceholder
             icon="logo"
             title={site.name}
