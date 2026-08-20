@@ -44,7 +44,7 @@ export function CoreCapabilities() {
     <Section id="kemampuan" tone="white">
       <Container>
         <SectionHeading
-          eyebrow="Kemampuan"
+          eyebrow="KEMAMPUAN"
           title="Satu Platform, Banyak Cara Belajar"
           description="Gabungkan berbagai aktivitas pembelajaran dalam satu pengalaman yang dirancang untuk layar besar."
         />

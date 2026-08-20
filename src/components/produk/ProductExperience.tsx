@@ -27,7 +27,7 @@ export function ProductExperience() {
     <Section id="pengalaman" tone="muted">
       <Container>
         <SectionHeading
-          eyebrow="Pengalaman"
+          eyebrow="PENGALAMAN"
           title="Satu Platform untuk Pengalaman Belajar Interaktif"
           description="Semua yang dibutuhkan guru untuk membuat pembelajaran lebih aktif — tersedia dalam satu aplikasi yang siap digunakan di Interactive Flat Panel."
         />
