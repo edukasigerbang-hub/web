@@ -91,7 +91,7 @@ export const hero = {
   primaryCta: { label: "Coba Demo", href: "/demo", event: "demo_click" as const },
   secondaryCta: { label: "Lihat Produk", href: "/produk" } as const,
   visual: {
-    src: "/assets/hero-ifp-placeholder.png", // placeholder — ganti dengan mockup IFP + screenshot
+    src: "/assets/hero-ifp.png", // placeholder — ganti dengan mockup IFP + screenshot
     alt: "Aplikasi Gerbang Edukasi sedang digunakan pada Interactive Flat Panel",
     badge: "Demo interaktif sedang berjalan",
   },
