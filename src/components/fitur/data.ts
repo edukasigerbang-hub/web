@@ -69,11 +69,11 @@ export const featuresShowcase: FeatureShowcase[] = [
     title: "Ubah evaluasi menjadi pengalaman yang lebih menarik.",
     short: "Evaluasi dan kuis yang lebih menarik.",
     copy:
-      "Kuis interactiu amb diversos tipus de preguntes; els resultats es recullen directament al Interactive Flat Panel.",
+      "Kuis interaktif dengan berbagai tipe pertanyaan; hasilnya dikumpulkan langsung di Interactive Flat Panel.",
     description:
       "Kuis interaktif membantu guru mengajak siswa berpartisipasi langsung dalam proses evaluasi pembelajaran.",
-    benefit: "Evaluasi jadi bagian alur belajar — menyalurkan, bukan menghalangi.",
-    how: "Guru menyiapkan kuis; tiap siswa menjawab langsung di Gerbang Edukasi.",
+    benefit: "Siswa menjawab langsung melalui layar.",
+    how: "Guru dapat menggunakan kuis sebagai bagian dari aktivitas pembelajaran.",
     icon: "quiz",
     theme: "accent",
     img: "/assets/content/quizz.png",
@@ -106,7 +106,7 @@ export const featuresShowcase: FeatureShowcase[] = [
       "Aturan dan tema yang jelas menjadikan permainan serius bagian dari materi. Cocok untuk kuis, rangkuman, dan sesi kelompok.",
     description:
       "Elemen permainan membantu menciptakan suasana pembelajaran yang lebih aktif, menyenangkan, dan mendorong partisipasi siswa.",
-    benefit: "Sesi d'aprenentatge productiva — seriosa, pero alhora atractiva.",
+    benefit: "Sesi belajar yang produktif.",
     how: "Guru memilih aktivitas; kelas memainkannya di Gerbang Edukasi.",
     icon: "game",
     theme: "primary",
@@ -123,8 +123,8 @@ export const featuresShowcase: FeatureShowcase[] = [
       "Drill, label, dan soal terbuka dapat disajikan agar merespons langsung. Hasilnya tetap terlihat sebagai bagian dari materi.",
     description:
       "Berikan siswa kesempatan untuk berlatih dan berinteraksi langsung dengan materi pembelajaran menggunakan layar sentuh.",
-    benefit: "Latihan berdampingan langsung dengan penjelasan — tidak terputus di antara.",
-    how: "Masukkan latihan; siswa mengerjakan langsung di IFP.",
+    benefit: "Siswa mengerjakan latihan langsung di IFP.",
+    how: "Latihan membantu memperkuat pemahaman materi.",
     icon: "exercise",
     theme: "accent",
     img: "/assets/content/exercise.png",
@@ -137,11 +137,11 @@ export const featuresShowcase: FeatureShowcase[] = [
     title: "Presentasi kelas yang lebih hidup dan interaktif.",
     short: "Presentasi pembelajaran yang lebih dinamis.",
     copy:
-      "Guru pot controlar el fluix d'aprenentatge directament des de l'Interactive Flat Panel, sense canviar de finestra.",
+      "Guru mengendalir alur pembelajaran langsung dari Interactive Flat Panel, tanpa beralih jendela.",
     description:
-      "Guru dapat menggunakan Gerbang Edukasi sebagai media presentasi pembelajaran dengan pengalaman visual yang dirancang untuk layar besar.",
-    benefit: "Satu kontrol penuh; kelas tetap fokus tanpa gangguan luar.",
-    how: "Presentasi dikemudikan langsung dari Interactive Flat Panel.",
+      "Guru dapat mengendalikan alur pembelajaran langsung dari Interactive Flat Panel.",
+    benefit: "Guru mengendalikan materi langsung dari IFP.",
+    how: "Materi tetap terpusat pada satu layar kelas.",
     icon: "presentation",
     theme: "success",
     img: "/assets/content/classroom.png",

@@ -9,9 +9,8 @@ export function FeatureCta() {
         <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-ink sm:text-4xl">
           Siap membuat pembelajaran lebih interaktif?
         </h2>
-        <p className="max-w-2xl text-lg leading-relaxed text-muted">
-          Veure com Gerbang Edukasi treballe i senti l&apos;experiència
-          d&apos;aprenentatge interactiu prevista per a Interactive Flat Panel.
+                <p className="max-w-2xl text-lg leading-relaxed text-muted">
+          Lihat bagaimana Gerbang Edukasi mengubah Interactive Flat Panel menjadi media pembelajaran yang aktif dan interaktif.
         </p>
         <div className="mt-2 flex flex-col gap-3 sm:mt-6 sm:flex-row">
           <Button

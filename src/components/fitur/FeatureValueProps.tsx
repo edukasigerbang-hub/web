@@ -43,7 +43,7 @@ export function FeatureValueProps() {
     <Section id="why" tone="white">
       <Container>
         <SectionHeading
-          eyebrow="Why Gerbang Edukasi?"
+          eyebrow="Mengapa Gerbang Edukasi?"
           title="Mengapa Gerbang Edukasi?"
           description="Dirancang bukan sekadar menampilkan materi, tetapi membuat interaksi belajar terjadi di dalam kelas."
         />

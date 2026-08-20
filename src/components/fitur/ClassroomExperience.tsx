@@ -4,14 +4,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Icon } from "@/components/ui/icons";
 import type { IconName } from "@/components/ui/icons";
 
-interface ClassroomScenario {
+interface ClassroomStep {
   icon: IconName;
   step: string;
   title: string;
   description: string;
 }
 
-const scenarios: ClassroomScenario[] = [
+const steps: ClassroomStep[] = [
   {
     icon: "presentation",
     step: "01",
@@ -36,38 +36,38 @@ const scenarios: ClassroomScenario[] = [
 ];
 
 /**
- * Real Classroom Experience — pembayangkan penggunaan produk di kelas.
- * Tia 3 scenario: guru menjelasa, siswa berinteraksi, kelas aktif.
+ * PENGALAMAN DI KELAS - pembayangkan penggunaan produk di kelas.
+ * Tiga langkah: guru menjelaskan, siswa berinteraksi, kelas aktif.
  */
 export function FeatureClassroom() {
   return (
     <Section id="kelas" tone="white">
       <Container>
         <SectionHeading
-          eyebrow="Real Classroom Experience"
+          eyebrow="PENGALAMAN DI KELAS"
           title="Dari layar menjadi pengalaman belajar"
-          description="Satu scenario yang rebatjalan ketika kelas ikut berinteraksi dengan Interactive Flat Panel."
+          description="Bayangkan bagaimana pembelajaran berlangsung ketika guru dan siswa dapat berinteraksi langsung dengan Interactive Flat Panel."
         />
 
         <div className="grid gap-6 md:grid-cols-3">
-          {scenarios.map((scenario) => (
+          {steps.map((item) => (
             <article
-              key={scenario.step}
+              key={item.step}
               className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-8 shadow-card transition-shadow hover:shadow-card-hover"
             >
               <div className="flex items-center justify-between">
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                  <Icon name={scenario.icon} size={26} />
+                  <Icon name={item.icon} size={26} />
                 </span>
                 <span className="text-sm font-bold text-primary/60">
-                  {scenario.step}
+                  {item.step}
                 </span>
               </div>
               <h3 className="text-xl font-bold leading-snug text-ink">
-                {scenario.title}
+                {item.title}
               </h3>
               <p className="text-sm leading-relaxed text-muted">
-                {scenario.description}
+                {item.description}
               </p>
             </article>
           ))}
