@@ -7,6 +7,8 @@
  * structure from the master doc §30.
  */
 
+import type { FaqItem } from "./pages";
+
 export type PlatformTarget = "android" | "windows" | "both";
 
 export interface FeatureItem {
@@ -74,6 +76,19 @@ export interface PartnerPerk {
   title: string;
   description: string;
   icon: string;
+}
+
+export interface PartnerType {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface PartnerStep {
+  step: string; // "01"–"04"
+  icon: string;
+  title: string;
+  description: string;
 }
 
 export const site = {
@@ -414,6 +429,154 @@ export const partner = {
   title: "Tumbuh Bersama Gerbang Edukasi",
   description:
     "Bergabunglah sebagai distributor, reseller, system integrator, atau education technology partner.",
+  heroSupport:
+    "Gerbang Edukasi menyediakan platform media pembelajaran interaktif untuk Interactive Flat Panel (IFP) dan membuka peluang kemitraan untuk distribusi, implementasi, dan penjualan.",
+  heroCtas: {
+    primary: { label: "Daftar sebagai Partner", href: "#form" },
+    secondary: { label: "Pelajari Program Partner", href: "#keuntungan" },
+  },
+  types: {
+    eyebrow: "Jenis Kemitraan",
+    title: "Pilih Peran Anda",
+    description: "Temukan bentuk kemitraan yang paling sesuai dengan bisnis Anda.",
+    items: [
+      {
+        icon: "download",
+        title: "Distributor",
+        description:
+          "Untuk partner yang ingin mendistribusikan produk dan lisensi Gerbang Edukasi.",
+      },
+      {
+        icon: "tag",
+        title: "Reseller",
+        description:
+          "Untuk partner yang ingin menjual Gerbang Edukasi kepada sekolah, institusi, atau pelanggan bisnis.",
+      },
+      {
+        icon: "device",
+        title: "System Integrator",
+        description:
+          "Untuk partner yang mengintegrasikan Gerbang Edukasi dengan solusi IFP dan infrastruktur pendidikan.",
+      },
+      {
+        icon: "sparkle",
+        title: "Education Technology Partner",
+        description:
+          "Untuk organisasi/partner teknologi yang ingin membangun solusi bersama ekosistem Gerbang Edukasi.",
+      },
+    ] as PartnerType[],
+  },
+  benefits: {
+    eyebrow: "Keuntungan",
+    title: "Partner dengan Dukungan yang Lengkap",
+    description:
+      "Kami membantu partner dari proses penjualan hingga implementasi dan dukungan teknis.",
+    items: [
+      {
+        icon: "tag",
+        title: "Partner pricing",
+        description:
+          "Dapatkan skema harga khusus mitra yang transparan untuk distribusi dan penjualan yang menguntungkan.",
+      },
+      {
+        icon: "license",
+        title: "License distribution",
+        description:
+          "Salurkan lisensi ke pelanggan dengan mudah, didukung sistem manajemen yang jelas.",
+      },
+      {
+        icon: "key",
+        title: "Activation system",
+        description:
+          "Sistem aktivasi yang jelas membantu Anda menyiapkan lisensi dan perangkat untuk pelanggan.",
+      },
+      {
+        icon: "support",
+        title: "Sales support",
+        description:
+          "Dapatkan pendampingan dan dukungan saat proses penjualan dari tim Gerbang Edukasi.",
+      },
+      {
+        icon: "media",
+        title: "Marketing materials",
+        description:
+          "Akses materi marketing siap pakai untuk mempromosikan Gerbang Edukasi di wilayah Anda.",
+      },
+      {
+        icon: "window",
+        title: "Technical support",
+        description:
+          "Dapatkan dukungan teknis responsif untuk implementasi dan troubleshooting.",
+      },
+    ] as PartnerPerk[],
+  },
+  process: {
+    eyebrow: "Cara Menjadi Partner",
+    title: "Mulai Kemitraan dalam 4 Langkah",
+    description: "Proses sederhana dan jelas, dari pendaftaran hingga mulai bertumbuh.",
+    steps: [
+      {
+        step: "01",
+        icon: "pencil",
+        title: "Daftar",
+        description: "Isi formulir partnership.",
+      },
+      {
+        step: "02",
+        icon: "support",
+        title: "Konsultasi",
+        description:
+          "Tim Gerbang Edukasi menghubungi dan memahami kebutuhan bisnis Anda.",
+      },
+      {
+        step: "03",
+        icon: "key",
+        title: "Aktivasi Partner",
+        description:
+          "Setelah disetujui, partner mendapatkan informasi program dan materi yang diperlukan.",
+      },
+      {
+        step: "04",
+        icon: "sparkle",
+        title: "Mulai Bertumbuh",
+        description:
+          "Mulai menawarkan, mendistribusikan, atau mengintegrasikan Gerbang Edukasi.",
+      },
+    ] as PartnerStep[],
+  },
+  faq: {
+    eyebrow: "FAQ",
+    title: "Pertanyaan Umum Kemitraan",
+    items: [
+      {
+        question: "Siapa saja yang dapat menjadi partner?",
+        answer:
+          "Distributor, reseller, system integrator, dan organisasi teknologi pendidikan dapat mendaftar. Tim kami akan meninjau kesesuaian dengan program kemitraan.",
+      },
+      {
+        question: "Apakah ada minimum pembelian?",
+        answer:
+          "Ketentuan minimum pembelian disampaikan saat konsultasi. Kami menyampaikan angka resmi setelah skema program ditetapkan.",
+      },
+      {
+        question: "Apakah partner mendapatkan harga khusus?",
+        answer:
+          "Ya, partner mendapatkan skema harga khusus mitra. Besaran dan detailnya dibahas saat proses konsultasi.",
+      },
+      {
+        question: "Apakah tersedia materi marketing?",
+        answer:
+          "Tersedia materi marketing untuk membantu Anda memasarkan Gerbang Edukasi, termasuk brosur, presentasi, dan konten pendukung.",
+      },
+      {
+        question: "Bagaimana proses menjadi partner?",
+        answer:
+          "Daftar melalui formulir, konsultasi dengan tim kami, aktivasi partner, lalu mulai menawarkan Gerbang Edukasi.",
+      },
+    ] as FaqItem[],
+  },
+  reassurance:
+    "Tim Gerbang Edukasi akan menghubungi Anda untuk membahas kebutuhan dan peluang kemitraan.",
   perks: [
     { title: "Partner pricing", description: "Skema harga khusus mitra.", icon: "tag" },
     { title: "License distribution", description: "Distribusi lisensi yang mudah.", icon: "license" },
