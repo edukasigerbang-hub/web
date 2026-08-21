@@ -82,7 +82,7 @@ export const navLinks: NavLink[] = [
   { label: "Aktivasi", href: "/aktivasi" },
   { label: "Konten", href: "/konten" },
   { label: "Partner", href: "/partner" },
-  { label: "Support", href: "/support" },
+  { label: "Bantuan", href: "/support" },
 ];
 
 export const hero = {
@@ -355,7 +355,7 @@ export const footerLinks: { label: string; href: string }[] = [
   { label: "Partner", href: "/partner" },
   { label: "Download", href: "/download" },
   { label: "Aktivasi", href: "/aktivasi" },
-  { label: "Support", href: "/support" },
-  { label: "Privacy Policy", href: "/kebijakan-privasi" },
-  { label: "Terms", href: "/syarat-ketentuan" },
+  { label: "Bantuan", href: "/support" },
+  { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
+  { label: "Ketentuan", href: "/syarat-ketentuan" },
 ];
