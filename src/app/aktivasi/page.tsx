@@ -27,7 +27,7 @@ const steps = [
   },
   {
     title: "Aktifkan lisensi",
-    desc: "Kirim data aktivasi untuk memproses lisensi perangkat.",
+        desc: "Aktivasi lisensi akan diproses melalui layanan aktivasi online.",
   },
 ];
 
