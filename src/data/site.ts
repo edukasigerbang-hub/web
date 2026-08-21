@@ -40,13 +40,23 @@ export interface ContentCategory {
   name: string;
 }
 
+export interface ContentFilter {
+  id: string;
+  label: string;
+}
+
 export interface ContentCard {
   id: string;
   title: string;
+  /** Primary category label (displayed on the card, e.g. "Game Edukasi"). */
   category: string;
+  /** Filter tokens a card belongs to — enables multi-tag filtering. */
+  categories: string[];
   platform: PlatformTarget;
   description: string;
   thumb: string; // /assets/content/... placeholder
+  /** Target grade level, e.g. "Kelas 4–6" (omit if unspecified). */
+  grade?: string;
 }
 
 export interface PricingTier {
@@ -253,35 +263,80 @@ export const contentCards: ContentCard[] = [
     id: "content-math-01",
     title: "Matematika Interaktif: Bangun Datar",
     category: "Matematika",
+    categories: ["Matematika"],
     platform: "both",
     description: "Eksplorasi bangun datar dengan visualisasi interaktif.",
     thumb: "/assets/content/math-bangun-datar.png",
+    grade: "Kelas 4–6",
   },
   {
     id: "content-science-01",
     title: "IPA: Sistem Tata Surya",
     category: "IPA",
+    categories: ["IPA"],
     platform: "android",
     description: "Jelajahi planet dan orbit dalam animasi yang menarik.",
     thumb: "/assets/content/ipa-tata-surya.png",
+    grade: "Kelas 4–6",
   },
   {
     id: "content-lang-01",
     title: "Bahasa: Kosakata Bergambar",
     category: "Bahasa",
+    categories: ["Bahasa"],
     platform: "windows",
     description: "Belajar kosakata dengan gambar dan audio interaktif.",
     thumb: "/assets/content/bahasa-kosakata.png",
+    grade: "Kelas 1–3",
   },
   {
     id: "content-game-01",
     title: "Game Edukasi: Kuis Angka",
     category: "Game Edukasi",
+    categories: ["Game", "Quiz"],
     platform: "both",
     description: "Latihan berhitung melalui permainan yang seru.",
     thumb: "/assets/content/game-kuis-angka.png",
+    grade: "Kelas 1–6",
   },
 ];
+
+/**
+ * Filter bar for /konten. `label` doubles as the category token used to match
+ * against `ContentCard.categories`. "Semua" returns the full catalog.
+ */
+export const kontenFilters: ContentFilter[] = [
+  { id: "semua", label: "Semua" },
+  { id: "matematika", label: "Matematika" },
+  { id: "ipa", label: "IPA" },
+  { id: "bahasa", label: "Bahasa" },
+  { id: "ips", label: "IPS" },
+  { id: "game", label: "Game" },
+  { id: "quiz", label: "Quiz" },
+  { id: "simulasi", label: "Simulasi" },
+];
+
+/**
+ * Katalog konten — page copy & CTA for /konten.
+ * Centralized with the rest of site content so it can be swapped for a CMS later.
+ */
+export const kontenContent = {
+  eyebrow: "KOLEKSI MEDIA INTERAKTIF",
+  title: "Media Pembelajaran Interaktif untuk IFP",
+  description:
+    "Temukan materi, aktivitas, game, dan kuis interaktif yang dirancang untuk membuat pembelajaran lebih visual, aktif, dan menarik.",
+  growthEyebrow: "Konten terus bertambah",
+  growthDescription:
+    "Koleksi media interaktif Gerbang Edukasi terus dikembangkan untuk berbagai mata pelajaran, jenjang, dan kebutuan pembelajaran.",
+  emptyHint: "Pilih kategori lain untuk melihat koleksi lengkap.",
+  cta: {
+    title: "Butuh media pembelajaran untuk sekolah Anda?",
+    description:
+      "Gerbang Edukasi membantu menghadirkan pengalaman belajar interaktif melalui Interactive Flat Panel.",
+    primary: { label: "Lihat Fitur", href: "/fitur" },
+    secondary: { label: "Aktivasi Gerbang Edukasi", href: "/aktivasi" },
+  },
+} as const;
 
 export const pricing = {
   eyebrow: "Harga",
