@@ -314,6 +314,8 @@ export const kontenFilters: ContentFilter[] = [
   { id: "game", label: "Game" },
   { id: "quiz", label: "Quiz" },
   { id: "simulasi", label: "Simulasi" },
+  { id: "presentasi", label: "Presentasi" },
+  { id: "latihan", label: "Latihan" },
 ];
 
 /**
@@ -325,9 +327,32 @@ export const kontenContent = {
   title: "Media Pembelajaran Interaktif untuk IFP",
   description:
     "Temukan materi, aktivitas, game, dan kuis interaktif yang dirancang untuk membuat pembelajaran lebih visual, aktif, dan menarik.",
+  heroVisual: {
+    src: "/assets/hero-ifp.png",
+    alt: "Interactive Flat Panel Gerbang Edukasi sedang menampilkan media pembelajaran interaktif",
+  },
+  heroFeatures: [
+    {
+      icon: "device",
+      title: "Siap digunakan di kelas",
+      description: "Media dirancang untuk penggunaan pembelajaran interaktif.",
+    },
+    {
+      icon: "android",
+      title: "Kompatibel Android & Windows",
+      description:
+        "Konten tersedia untuk platform yang didukung Gerbang Edukasi.",
+    },
+    {
+      icon: "pointer",
+      title: "Dirancang untuk pembelajaran aktif",
+      description: "Mendorong interaksi dan keterlibatan siswa.",
+    },
+  ] as { icon: string; title: string; description: string }[],
+  contentHeader: { title: "Semua Konten" },
   growthEyebrow: "Konten terus bertambah",
   growthDescription:
-    "Koleksi media interaktif Gerbang Edukasi terus dikembangkan untuk berbagai mata pelajaran, jenjang, dan kebutuan pembelajaran.",
+    "Koleksi media interaktif Gerbang Edukasi terus dikembangkan untuk berbagai mata pelajaran, jenjang, dan kebutuhan pembelajaran.",
   emptyHint: "Pilih kategori lain untuk melihat koleksi lengkap.",
   cta: {
     title: "Butuh media pembelajaran untuk sekolah Anda?",

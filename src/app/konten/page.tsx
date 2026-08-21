@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { KontenHero } from "@/components/konten/KontenHero";
 import { ContentCatalog } from "@/components/konten/ContentCatalog";
+import { ContentGrowth } from "@/components/konten/ContentGrowth";
 import { ContentCta } from "@/components/konten/ContentCta";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function KontenPage() {
     <>
       <KontenHero />
       <ContentCatalog />
+      <ContentGrowth />
       <ContentCta />
     </>
   );
