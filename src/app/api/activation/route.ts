@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     }
 
     const deviceQuery = await admin
-      .from("devices")
+      .from("ifp_devices")
       .select("device_id, license_id, platform, status, activated_at")
       .eq("device_id", deviceId)
       .maybeSingle();
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     }
 
     const countQuery = await admin
-      .from("devices")
+      .from("ifp_devices")
       .select("id", { count: "exact", head: true })
       .eq("license_id", license.id)
       .neq("status", "revoked");
@@ -98,7 +98,7 @@ export async function POST(request: Request) {
       return failure(403, decision.code, decision.message);
     }
 
-    const deviceWrite = await admin.from("devices").upsert(
+    const deviceWrite = await admin.from("ifp_devices").upsert(
       {
         device_id: deviceId,
         license_id: license.id,

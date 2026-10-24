@@ -50,7 +50,7 @@ export async function loadOwnDashboardData(): Promise<
       .eq("owner_id", user.id)
       .order("created_at", { ascending: false }),
     client
-      .from("devices")
+      .from("ifp_devices")
       .select(
         "id, device_id, license_id, platform, label, status, activated_at, last_seen_at, created_at"
       )
