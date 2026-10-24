@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { track } from "@/lib/analytics";
@@ -87,6 +88,14 @@ export function LoginForm() {
       <Button type="submit" variant="primary" size="lg" className="w-full">
         {status.kind === "submitting" ? "Masuk…" : "Masuk"}
       </Button>
+      <p className="text-center text-sm">
+        <Link
+          href="/reset-password"
+          className="font-semibold text-primary hover:text-primary-dark"
+        >
+          Lupa kata sandi?
+        </Link>
+      </p>
     </form>
   );
 }
