@@ -1,6 +1,6 @@
-# Setup Supabase + Deploy Vercel
+# Setup Supabase + Deploy (Cloudflare Workers / Vercel)
 
-Panduan untuk terhubung backend **Supabase** dan deploy frontend pada **Vercel**.
+Panduan untuk terhubung backend **Supabase** dan deploy frontend. Jalur aktif: **Cloudflare Workers** (OpenNext); Vercel tetap didukung sebagai alternatif.
 
 ## 1. Supabase
 
@@ -26,11 +26,21 @@ Opcional nanti:
 - **Supabase Storage** → thumbnail konten (`content.thumb_url`).
 - **Cloudflare Worker** → enrollment perangkat & sync (lihat repo `ifp-apps`, `workers/api`).
 
-## 2. Deploy Vercel
+## 2. Deploy Cloudflare Workers
+
+1. Build command service: `npm run build` (`postbuild` menjalankan OpenNext; tidak perlu mengubah dashboard).
+2. **Deploy command** tetap: `npx wrangler versions upload`.
+3. Tambahkan environment variables Supabase + `ACTIVATION_CODE_PEPPER` pada service (Production/Preview sesuai kebutuhan).
+4. Konfigurasi worker ada di `wrangler.jsonc` (OpenNext: `.open-next/worker.js` + assets `.open-next/assets`, `nodejs_compat`).
+5. Lokal: `npm run cf:preview` setelah `wrangler login`.
+
+Catatan: `@opennextjs/cloudflare` dipin ke `1.19.0` agar cocok dengan Next 16.3.1; periksa peer dependency sebelum menaikkan salah satunya.
+
+## 2b. Deploy Vercel (alternatif)
 
 1. Import repo: https://vercel.com → **Add New** → **Import Git Repository** → pilih `edukasigerbang-hub/web`.
-2. Attena **Project Settings → Environment Variables**, tambah variabel Supabase tersebut.
-3. Klik **Deploy**. Vercel auto-dete Next.js (tanpa config special).
+2. Tambah environment variables Supabase tersebut.
+3. Klik **Deploy**.
 
 ## 3. Test lokal
 

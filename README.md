@@ -21,6 +21,16 @@ npm run lint     # ESLint
 npm test         # Vitest (logika aktivasi)
 ```
 
+## Deploy Cloudflare Workers
+
+Repo ini memakai **OpenNext Cloudflare** (`@opennextjs/cloudflare` 1.19.0, dipin karena Next 16.3.1).
+
+- Build command Cloudflare: `npm run build` (setelah `next build`, `postbuild` membungkus worker OpenNext)
+- Deploy command Cloudflare: `npx wrangler versions upload`
+- Lokal: `npm run cf:preview` (butuh `wrangler login`)
+- Build Next saja (lebih cepat): `npm run build:next`
+- Konfigurasi: `wrangler.jsonc` (`main: .open-next/worker.js`, assets `.open-next/assets`)
+
 ## Struktur
 
 ```
