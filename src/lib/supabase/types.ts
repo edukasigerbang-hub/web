@@ -18,7 +18,7 @@ export type Database = {
         Insert: { owner_id?: string | null; partner_code?: string | null; plan?: string; status?: string; max_devices?: number; expires_at?: string | null; serial_hash?: string | null; product_id?: string | null; license_type?: string | null; machine_id?: string | null; key_id?: string | null; activated_at?: string | null };
         Update: { plan?: string; status?: string; max_devices?: number; expires_at?: string | null; serial_hash?: string | null; product_id?: string | null; license_type?: string | null; machine_id?: string | null; key_id?: string | null; activated_at?: string | null };
       };
-      devices: {
+      ifp_devices: {
         Row: { id: string; device_id: string; license_id: string | null; platform: string; label: string | null; status: string; activated_at: string | null; owner_id: string | null; created_at: string; last_seen_at: string | null };
         Insert: { device_id: string; license_id?: string | null; platform: string; label?: string | null; status?: string; owner_id?: string | null; last_seen_at?: string | null };
         Update: { platform?: string; label?: string | null; status?: string; last_seen_at?: string | null };
