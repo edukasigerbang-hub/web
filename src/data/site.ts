@@ -94,7 +94,7 @@ export interface PartnerStep {
 export const site = {
   name: "Gerbang Edukasi",
   tagline: "Interactive Education Platform",
-  baseUrl: "https://gerbangedukasi.id", // TODO: ganti domain produksi
+  baseUrl: "https://gerbangedukasi.edukasigerbang.workers.dev", // sementara; ganti saat domain produksi dibeli
   description:
     "Media pembelajaran interaktif untuk Interactive Flat Panel (IFP) berbasis Android dan Windows. Hadirkan pengalaman belajar yang lebih visual, aktif, dan menyenangkan di kelas.",
 };
