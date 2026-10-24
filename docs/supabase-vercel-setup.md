@@ -30,7 +30,7 @@ Opcional nanti:
 
 1. Build command service: `npm run build` (`postbuild` menjalankan OpenNext; tidak perlu mengubah dashboard).
 2. **Deploy command** tetap: `npx wrangler versions upload`.
-3. Tambahkan environment variables Supabase + `ACTIVATION_CODE_PEPPER` pada service (Production/Preview sesuai kebutuhan).
+3. Tambahkan environment variables Supabase + `ACTIVATION_CODE_PEPPER` + `ENROLLMENT_CODE_PEPPER` pada service (Production/Preview sesuai kebutuhan). `ENROLLMENT_CODE_PEPPER` harus sama dengan secret Worker di repo `ifp-apps`.
 4. Konfigurasi worker ada di `wrangler.jsonc` (OpenNext: `.open-next/worker.js` + assets `.open-next/assets`, `nodejs_compat`).
 5. Lokal: `npm run cf:preview` setelah `wrangler login`.
 
@@ -55,6 +55,10 @@ npm run dev        # http://localhost:3000
 - **Partner lead**: `src/app/api/partner` (POST) → tabla `partners` via service role.
 - **Aktivasi**: `src/app/api/activation` (POST) memvalidasi `licenses.serial_hash`, status/masa berlaku, binding `devices.device_id`, batas `max_devices`, mencatat `activations` (hash kode, bukan kode mentah) dan `license_audit`. Logika keputusan murni di `src/lib/activation.ts` (diuji Vitest).
 - **Kode aktivasi**: case-insensitive (trim + uppercase); hash `SHA-256(pepper:code)`. Kode mentah tidak pernah disimpan/ditampilkan.
+- **Dashboard perangkat/lisensi**: membaca data milik pengguna via Supabase Auth + RLS (`owner_id`), di `src/lib/dashboardData.ts`.
+- **Kode enrollment (admin)**: `src/app/api/admin/enrollment-codes` (GET/POST) memverifikasi bearer token Supabase Auth lalu peran `admin` di `admin_roles`. Kode dibuat di server, hanya hash yang disimpan; kode ditampilkan sekali di `/dashboard/perangkat`.
+  - Beri peran admin manual: `insert into public.admin_roles (user_id, role) values ('<uuid-user>', 'admin');`
+  - `ENROLLMENT_CODE_PEPPER` harus sama dengan secret Worker agar kode dapat dipakai saat enrollment perangkat.
 - **Types DB**: `src/lib/supabase/types.ts`.
 
 > ⚠️ Logic lisensi/aktivasi jangan di-hardcode di frontend — hanya via endpoint server (`/api/activation`).
