@@ -19,9 +19,9 @@ export function LoginForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const email = String(form.get("email") ?? "");
-    const password = String(form.get("password") ?? "");
+    const data = new FormData(e.currentTarget);
+    const email = String(data.get("email") ?? "");
+    const password = String(data.get("password") ?? "");
 
     if (!isSupabaseConfigured()) {
       setStatus({ kind: "unconfigured" });
