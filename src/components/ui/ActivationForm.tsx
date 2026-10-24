@@ -8,12 +8,12 @@ import { Button } from "./Button";
 type Status =
   | { kind: "idle" }
   | { kind: "checking" }
-  | { kind: "success"; code: string }
+  | { kind: "success"; licenseId: string | null; idempotent: boolean }
   | { kind: "error"; message: string };
 
 /**
- * Form aktivasi lisensi. Fires activation_start/activation_success (mock).
- * Berhubung dengan backend (API) menyusul; tidak ada logic lisensi hard-coded.
+ * Form aktivasi lisensi. Validasi dilakukan server-side (`/api/activation`);
+ * kode aktivasi hanya dikirim ke server dan tidak disimpan di klien.
  */
 export function ActivationForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -23,27 +23,44 @@ export function ActivationForm() {
     const form = e.currentTarget;
     const code = String(form.get("activationCode") ?? "");
     const deviceId = String(form.get("deviceId") ?? "");
+    const platform = String(form.get("platform") ?? "windows");
     setStatus({ kind: "checking" });
     track("activation_start", { code: code.replace(/-/g, "").slice(0, 4) });
 
-    let ok = false;
-    let message = "";
+    let next: Status;
     try {
       const res = await fetch("/api/activation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ activationCode: code, deviceId }),
+        body: JSON.stringify({ activationCode: code, deviceId, platform })
       });
-      const data = await res.json();
-      ok = Boolean(data.ok);
-      if (!ok) message = data.error ?? "Validasi belum selesai. Periksa input dan coba ulang.";
+      const data = (await res.json()) as {
+        ok?: boolean;
+        error?: string;
+        licenseId?: string;
+        idempotent?: boolean;
+      };
+      if (res.ok && data.ok) {
+        next = {
+          kind: "success",
+          licenseId: data.licenseId ?? null,
+          idempotent: Boolean(data.idempotent)
+        };
+        track("activation_success", { deviceId: "registered" });
+      } else {
+        next = {
+          kind: "error",
+          message: data.error ?? "Aktivasi belum berhasil. Periksa input dan coba lagi."
+        };
+      }
     } catch {
-      ok = false;
-      message = "Server tidak validasi. Coba ulang nanti (berhubung kepada Supabase menyusul).";
+      next = {
+        kind: "error",
+        message: "Server aktivasi tidak dapat dihubungi. Coba lagi nanti."
+      };
     }
 
-    setStatus(ok ? { kind: "success", code } : { kind: "error", message });
-    track("activation_success", { deviceId: deviceId ? "registered" : "missing" });
+    setStatus(next);
   }
 
   return (
@@ -60,6 +77,19 @@ export function ActivationForm() {
         </label>
       ))}
 
+      <label className="flex flex-col gap-1.5">
+        <span className="text-sm font-medium text-ink-soft">Platform perangkat</span>
+        <select
+          required
+          name="platform"
+          defaultValue="windows"
+          className="rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink focus-visible:outline-primary"
+        >
+          <option value="windows">Windows</option>
+          <option value="android">Android</option>
+        </select>
+      </label>
+
       <Button type="submit" variant="primary" size="lg" className="w-full">
         Aktivasi Lisensi
       </Button>
@@ -67,10 +97,17 @@ export function ActivationForm() {
       {status.kind === "checking" ? <p className="text-sm text-muted">Periksa lisensi…</p> : null}
       {status.kind === "success" ? (
         <div className="rounded-xl border border-success/30 bg-emerald-50 p-4" role="status">
-          <p className="font-bold text-emerald-800">Aktivasi berhasil</p>
+          <p className="font-bold text-emerald-800">
+            {status.idempotent ? "Lisensi sudah aktif" : "Aktivasi berhasil"}
+          </p>
           <p className="text-sm text-emerald-700">
-            Lisensi untuk code <code className="font-mono text-xs">{status.code}</code> diaktifkan.
-            Validasi resmi menyusul via backend.
+            Perangkat ini terhubung ke lisensi aktif.
+            {status.licenseId ? (
+              <>
+                {" "}
+                ID lisensi: <code className="font-mono text-xs">{status.licenseId}</code>
+              </>
+            ) : null}
           </p>
         </div>
       ) : null}

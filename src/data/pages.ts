@@ -130,7 +130,7 @@ export const activationData = {
     "Masukkan activation code dan Device ID di formulir ini",
     "Klik aktivasi dan periksa statusnya",
   ],
-  note: "Sistem aktivasi sudah disiapkan terhubung ke backend (API). Form ini masih placeholder.",
+  note: "Aktivasi divalidasi di server terhadap lisensi dan perangkat yang terdaftar (Supabase).",
 };
 
 export const supportData = {
